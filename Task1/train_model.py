@@ -40,7 +40,7 @@ print("Accuracy:", accuracy)
 
 # Create confusion matrix
 cm = confusion_matrix(y_test, y_pred)
-print("\nConfusion Matrix:", cm, "\n")
+print("\nConfusion Matrix:\n", cm, "\n")
 
 # Save model.joblib
 joblib.dump(logicReg, "model.joblib")
