@@ -1,3 +1,19 @@
 import streamlit as st
 
 from predict import predict
+
+
+st.title("Iris Species Predictor")
+st.write("Enter the measurements of an iris flower in centimeters.")
+st.write("Click Predict to see its predicted species.")
+
+
+sepal_length = st.number_input("Sepal length (cm)", min_value=0.0, value=5.1, step=0.1)
+sepal_width = st.number_input("Sepal width (cm)", min_value=0.0, value=3.5, step=0.1)
+petal_length = st.number_input("Petal length (cm)", min_value=0.0, value=1.4, step=0.1)
+petal_width = st.number_input("Petal width (cm)", min_value=0.0, value=0.2, step=0.1)
+
+if st.button("Predict", type="primary", width="stretch"):
+    features = [sepal_length, sepal_width, petal_length, petal_width]
+    species = predict(features)
+    st.success(f"Predicted species: {species.capitalize()}")
